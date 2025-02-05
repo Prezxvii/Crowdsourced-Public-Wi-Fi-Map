@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crowdsourced Public Wi-Fi Map</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-gray-100" id="body">
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-600 text-white p-4">
+      <div class="flex justify-between items-center">
+        <a href="#" class="text-2xl font-bold">Crowdsourced Public Wi-Fi Map</a>
+        <div>
+          <a href="home.html" class="px-4">Home</a>
+          <a href="wifi.html" class="px-4">Add Wi-Fi Spot</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Map Container -->
+    <div id="map" class="h-screen"></div>
+
+    <!-- Wi-Fi Spot Form (Centered) -->
+    <div id="addWiFiForm" class="flex items-center justify-center min-h-screen">
+      <div
+        class="form-container bg-white p-6 rounded-lg shadow-lg z-50 w-full max-w-md"
+      >
+        <h2 class="text-xl font-semibold mb-4">Add a Wi-Fi Spot</h2>
+        <form id="wifiForm">
+          <input
+            type="text"
+            id="spotName"
+            placeholder="Spot Name"
+            class="form-input mb-2"
+            required
+          />
+          <input
+            type="text"
+            id="address"
+            placeholder="Address"
+            class="form-input mb-2"
+            required
+          />
+          <select id="status" class="form-input mb-2" required>
+            <option value="working">Working</option>
+            <option value="slow">Slow</option>
+            <option value="down">Down</option>
+          </select>
+          <textarea
+            id="comments"
+            placeholder="Additional Comments"
+            class="form-input mb-2"
+          ></textarea>
+          <input
+            type="file"
+            id="photoUpload"
+            class="form-input mb-2"
+            accept="image/*"
+          />
+          <button
+            type="submit"
+            class="btn-submit bg-green-500 text-white p-3 rounded-full w-full"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-4 mt-6">
+      <p>&copy; 2025 Crowdsourced Public Wi-Fi Map. All rights reserved.</p>
+    </footer>
+
+    <!-- Firebase and Google Maps JS -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap"
+      async
+      defer
+    ></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

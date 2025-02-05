@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Crowdsourced Public Wi-Fi Map</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100">
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-600 text-white p-4">
+      <div class="flex justify-between items-center">
+        <a href="wifi.html" class="text-2xl font-bold"
+          >Crowdsourced Public Wi-Fi Map</a
+        >
+        <div>
+          <a href="map.html" class="px-4">Map</a>
+          <a href="wifi.html" class="px-4">Add Wi-Fi Spot</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="text-center py-20 bg-blue-500 text-white">
+      <h1 class="text-4xl font-bold">Find & Share Public Wi-Fi Spots</h1>
+      <p class="mt-4 text-lg">
+        Join the community in mapping and sharing public Wi-Fi access points.
+      </p>
+      <!-- Added Image -->
+      <div class="mt-6">
+        <img
+          src="images/wifi.jpg"
+          alt="Wi-Fi Map"
+          class="mx-auto rounded-lg shadow-lg max-w-lg"
+        />
+      </div>
+      <a
+        href="map.html"
+        class="mt-6 inline-block bg-white text-blue-500 px-6 py-3 rounded-full font-semibold"
+        >View Map</a
+      >
+    </section>
+
+    <!-- Features Section -->
+    <section class="max-w-4xl mx-auto p-6 text-center">
+      <h2 class="text-2xl font-semibold mb-4">Why Use Our Map?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-4 bg-white rounded-lg shadow">
+          <h3 class="font-bold">Find Wi-Fi Easily</h3>
+          <p>Locate free and public Wi-Fi hotspots near you.</p>
+        </div>
+        <div class="p-4 bg-white rounded-lg shadow">
+          <h3 class="font-bold">Contribute to the Map</h3>
+          <p>Add new Wi-Fi locations and keep information up to date.</p>
+        </div>
+        <div class="p-4 bg-white rounded-lg shadow">
+          <h3 class="font-bold">Filter by Speed & Status</h3>
+          <p>Know which Wi-Fi spots are working, slow, or down.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-4 mt-6">
+      <p>&copy; 2025 Crowdsourced Public Wi-Fi Map. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

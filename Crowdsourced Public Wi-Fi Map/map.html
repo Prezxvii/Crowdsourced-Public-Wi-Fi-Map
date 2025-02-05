@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map Crowdsourced Public Wi-Fi Map</title>
+    <!-- Latest version of Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-600 text-white p-4 shadow-md">
+      <div class="flex justify-between items-center">
+        <a href="#" class="text-2xl font-bold">Crowdsourced Public Wi-Fi Map</a>
+        <div>
+          <a href="home.html" class="px-4 hover:underline">Home</a>
+          <a href="wifi.html" class="px-4 hover:underline">Add Wi-Fi Spot</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Map Container -->
+    <div id="map" class="h-screen w-full"></div>
+
+    <script>
+      // Google Maps initialization function
+      function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 13,
+          center: { lat: 40.753597, lng: -73.983233 }, // Center at Bryant Park
+          mapTypeId: "roadmap",
+        });
+
+        const locations = [
+          {
+            name: "Bryant Park",
+            latitude: 40.753597,
+            longitude: -73.983233,
+            status: "working",
+          },
+          {
+            name: "Central Park",
+            latitude: 40.7829,
+            longitude: -73.9654,
+            status: "working",
+          },
+          {
+            name: "Washington Square Park",
+            latitude: 40.730824,
+            longitude: -73.997332,
+            status: "working",
+          },
+          {
+            name: "Union Square",
+            latitude: 40.734987,
+            longitude: -73.991144,
+            status: "under maintenance",
+          },
+          {
+            name: "Brooklyn Bridge Park",
+            latitude: 40.700292,
+            longitude: -73.996703,
+            status: "working",
+          },
+          {
+            name: "Grand Central Terminal",
+            latitude: 40.7527,
+            longitude: -73.9772,
+            status: "working",
+          },
+        ];
+
+        // Loop through locations and add markers to the map
+        locations.forEach(function (location) {
+          const marker = new google.maps.Marker({
+            position: { lat: location.latitude, lng: location.longitude },
+            map: map,
+            title: location.name,
+            icon: "https://maps.google.com/mapfiles/ms/icons/blue-dot.png", // Custom marker icon
+          });
+
+          const infoWindow = new google.maps.InfoWindow({
+            content: `<h3>${location.name}</h3><p>Status: ${location.status}</p>`,
+          });
+
+          // Open InfoWindow when marker is clicked
+          marker.addListener("click", function () {
+            infoWindow.open(map, marker);
+          });
+        });
+      }
+    </script>
+
+    <!-- Replace YOUR_API_KEY with your actual Google Maps API key -->
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC009VqE8xaYDDTzGDQnND2JLxX3xyE6OM&callback=initMap"
+    ></script>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-4 mt-6">
+      <p>&copy; 2025 Crowdsourced Public Wi-Fi Map. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
